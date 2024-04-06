@@ -4,7 +4,7 @@ let newGame_button = document.getElementById("newGame_button");
 let congratulations_window = document.getElementById("congratulations_window");
 let showing_which_player_turn = document.getElementById("showing_which_player_turn");
 let disable_div = document.getElementById("disable_div");
-let click_sound = new Audio("./Assets/click-button.mp3");
+let click_sound = new Audio("./Assets/click-button-sound.wav");
 
 let player_turn = "X";
 
@@ -100,10 +100,6 @@ function check_winner() {
         }, 500);
         winner(board[0][2]);
     }
-    
-    console.log(board[0]);
-    console.log(board[1]);
-    console.log(board[2]);
 }
 
 // reset function

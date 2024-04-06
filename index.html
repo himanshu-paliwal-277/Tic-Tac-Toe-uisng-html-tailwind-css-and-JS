@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Calculator</title>
+    <title>Tic Tac Toe</title>
     <!-- Tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- website logo -->
@@ -55,15 +55,15 @@
             </div>
             <h2 class="text-3xl text-white my-4"><span id="showing_which_player_turn">X</span> Turn</h2>
             <!-- reset button -->
-            <button id="Reset_button" class="bg-red-500 hover:bg-red-400 active:bg-red-500 w-full py-3 text-white text-xl rounded-xl">Reset</button>
+            <button id="Reset_button" class="bg-red-500 hover:bg-opacity-90 active:bg-opacity-100 w-full py-3 text-white text-xl rounded-xl">Reset</button>
         </div>
         <!-- congratulations window -->
         <div id="congratulations_window" class="hidden absolute w-full h-screen flex justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500">
-            <div class="lg:w-[40%] sm:w-[70%] w-[90%] h-[60vh] bg-gradient-to-r from-cyan-200 to-green-200 rounded-2xl flex flex-col justify-center items-center">
+            <div class="lg:w-[40%] sm:w-[70%] w-[90%] sm:h-[60vh] h-[40vh] bg-gradient-to-r from-cyan-200 to-green-200 rounded-2xl flex flex-col justify-center items-center">
                 <h1 class="sm:text-4xl text-2xl mb-4">Congratulations</h1>
                 <h1 class="sm:text-3xl text-xl opacity-70"><span id="winner_player">X</span> is Winner</h1>
                 <button id="newGame_button" class="relative z-10 px-6 py-2 bg-green-500 hover:bg-green-600 active:bg-green-500 rounded-lg text-white mt-6 sm:text-xl text-base">New Game</button>
-                <img class="absolute top-0 w-[50%] h-[100vh]" src="./Assets/celebrate.gif" alt="celebrate animation">
+                <img class="absolute top-0 sm:w-[50%] w-[80%] h-[100vh]" src="./Assets/celebrate.gif" alt="celebrate animation">
             </div>
         </div>
     </div>
