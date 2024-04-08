@@ -14,72 +14,174 @@
     />
   </head>
   <body class="overflow-hidden">
-    <div class="flex justify-center items-center w-full h-screen bg-gradient-to-b sm:bg-gradient-to-r from-sky-500 to-indigo-500">
-        <!-- Logo -->
-        <div class="absolute sm:top-6 sm:left-6 top-4 left-4 flex items-center">
-            <img class="sm:w-20 w-16" src="./Assets/tic tac toe logo.png" alt="logo">
-            <h1 class="ml-3 text-4xl font-semibold text-white sm:hidden block">Tic Tac Toe</h1>
+    <div
+      class="flex justify-center items-center w-full h-screen bg-gradient-to-b sm:bg-gradient-to-r from-sky-500 to-indigo-500"
+    >
+      <!-- Logo -->
+      <div class="absolute sm:top-6 sm:left-6 top-4 left-4 flex items-center">
+        <img
+          class="sm:w-20 w-16"
+          src="./Assets/tic tac toe logo.png"
+          alt="logo"
+        />
+        <h1 class="ml-3 text-4xl font-semibold text-white sm:hidden block">
+          Tic Tac Toe
+        </h1>
+      </div>
+      <!-- Play with computer and user option window -->
+      <div
+        id="start_window"
+        class="duration-500 w-full h-screen bg-gradient-to-r from-purple-300 to-blue-300 absolute z-10 flex justify-center items-center"
+      >
+        <div class="start_window_div flex flex-col items-center">
+          <img
+            class="w-44 shadow-xl rounded-full mb-6"
+            src="./Assets/tic tac toe logo.png"
+            alt="logo"
+          />
+          <h1
+            style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.753)"
+            class="text-white mb-8 text-4xl font-bold"
+          >
+            Tic Tac Toe Game
+          </h1>
+          <button
+            id="player_1_button"
+            class="font-semibold shadow-lg hover:scale-105 duration-150 hover:bg-blue-700 text-white bg-blue-600 px-4 py-2 rounded-lg text-xl w-[60%]"
+          >
+            1 Player
+          </button>
+          <button
+            id="player_2_button"
+            class="mt-3 font-semibold shadow-lg hover:scale-105 duration-150 hover:bg-blue-700 text-white bg-blue-600 px-4 py-2 rounded-lg text-xl w-[60%]"
+          >
+            2 Player
+          </button>
         </div>
-        <!-- Play with computer and user option window -->
-        <div id="start_window" class="duration-500 w-full h-screen bg-gradient-to-r from-purple-300 to-blue-300 absolute z-10 flex justify-center items-center">
-            <div class="start_window_div flex flex-col items-center">
-                <img class="w-44 shadow-xl rounded-full mb-6" src="./Assets/tic tac toe logo.png" alt="logo">
-                <h1 style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.753);" class="text-white mb-8 text-4xl font-bold">Tic Tac Toe Game</h1>
-                <button id="player_1_button" class="font-semibold shadow-lg hover:scale-105 duration-150 hover:bg-blue-700 text-white bg-blue-600 px-4 py-2 rounded-lg text-xl w-[60%]">1 Player</button>
-                <button id="player_2_button" class="mt-3 font-semibold shadow-lg hover:scale-105 duration-150 hover:bg-blue-700 text-white bg-blue-600 px-4 py-2 rounded-lg text-xl w-[60%]">2 Player</button>
-            </div>
+      </div>
+      <!-- Game level -->
+      <div
+        class="absolute sm:top-5 sm:right-5 sm:w-52 w-full sm:inline-block flex justify-center top-28"
+      >
+        <button
+          id="easy_level_button"
+          class="bg-blue-600 text-xl text-white rounded-lg px-5 py-2 mr-2"
+        >
+          Easy
+        </button>
+        <button
+          id="advance_level_button"
+          class="bg-blue-600 text-xl text-white rounded-lg px-5 py-2"
+        >
+          Advance
+        </button>
+      </div>
+      <!-- main container -->
+      <div class="flex flex-col items-center sm:pt-0 pt-24">
+        <h1 class="text-5xl font-semibold mb-6 text-pink-100 sm:block hidden">
+          Tic Tac Toe
+        </h1>
+        <!-- tic tac toe container and boxes -->
+        <div class="flex flex-wrap relative w-[336px] text-5xl bg-transparent">
+          <div
+            style="width: 0%"
+            class="horizontal_line absolute left-8 rounded-full duration-500 h-2 bg-gradient-to-r from-purple-500 to-pink-500"
+          ></div>
+          <div
+            style="height: 0%"
+            class="vertical_line absolute top-8 rounded-full duration-500 w-2 bg-gradient-to-t from-violet-500 to-fuchsia-500"
+          ></div>
+          <div
+            style="height: 0%; transform: rotate(-45deg)"
+            class="diagonal_line_one absolute top-0 left-[164px] rounded-full duration-500 w-2 bg-gradient-to-t from-sky-500 to-indigo-500"
+          ></div>
+          <div
+            style="height: 0%; transform: rotate(45deg)"
+            class="diagonal_line_two absolute top-0 left-[164px] rounded-full duration-500 w-2 bg-gradient-to-t from-sky-500 to-indigo-500"
+          ></div>
+          <div id="disable_div" class="hidden w-full h-full absolute"></div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
+          <div class="p-[3px] w-1/3 h-28">
+            <spna
+              class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"
+            ></spna>
+          </div>
         </div>
-        <!-- main container -->
-        <div class="flex flex-col items-center sm:pt-0 pt-24">
-            <h1 class="text-5xl font-semibold mb-6 text-pink-100 sm:block hidden">Tic Tac Toe</h1>
-            <!-- tic tac toe container and boxes -->
-            <div class="flex flex-wrap relative w-[336px] text-5xl bg-transparent">
-                <div style="width: 0%;" class="horizontal_line absolute left-8 rounded-full duration-500 h-2 bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                <div style="height: 0%;" class="vertical_line absolute top-8 rounded-full duration-500 w-2 bg-gradient-to-t from-violet-500 to-fuchsia-500"></div>
-                <div style="height: 0%; transform: rotate(-45deg);" class="diagonal_line_one absolute top-0 left-[164px] rounded-full duration-500 w-2 bg-gradient-to-t from-sky-500 to-indigo-500"></div>
-                <div style="height: 0%; transform: rotate(45deg);" class="diagonal_line_two absolute top-0 left-[164px] rounded-full duration-500 w-2 bg-gradient-to-t from-sky-500 to-indigo-500"></div>
-                <div id="disable_div" class="hidden w-full h-full absolute"></div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-                <div class="p-[3px] w-1/3 h-28">
-                    <spna class="buttons w-full h-full cursor-pointer rounded-lg bg-blue-200 hover:bg-blue-300 active:bg-blue-200 flex justify-center items-center"></spna>
-                </div>
-            </div>
-            <h2 class="text-3xl text-white my-4"><span id="showing_which_player_turn">X</span> Turn</h2>
-            <!-- reset button -->
-            <button id="Reset_button" class="bg-red-500 hover:bg-opacity-90 active:bg-opacity-100 w-full py-3 text-white text-xl rounded-xl">Reset</button>
+        <h2 class="text-3xl text-white my-4">
+          <span id="showing_which_player_turn">X</span> Turn
+        </h2>
+        <!-- reset button -->
+        <button
+          id="Reset_button"
+          class="bg-red-500 hover:bg-opacity-90 active:bg-opacity-100 w-full py-3 text-white text-xl rounded-xl"
+        >
+          Reset
+        </button>
+      </div>
+      <!-- congratulations window -->
+      <div
+        id="congratulations_window"
+        class="hidden absolute w-full h-screen flex justify-center items-center bg-gradient-to-b sm:bg-gradient-to-r from-sky-500 to-indigo-500"
+      >
+        <div
+          class="lg:w-[40%] sm:w-[70%] w-[90%] sm:h-[60vh] h-[40vh] sm:mb-0 mb-12 bg-gradient-to-r from-cyan-300 to-green-300 shadow-2xl rounded-2xl flex flex-col justify-center items-center"
+        >
+          <h1 class="sm:text-4xl text-2xl mb-4">Congratulations</h1>
+          <h1 class="sm:text-3xl text-xl opacity-70">
+            <span id="winner_player">X</span> is Winner
+          </h1>
+          <button
+            id="newGame_button"
+            class="relative z-10 px-6 py-2 bg-green-500 hover:bg-green-600 active:bg-green-500 rounded-lg text-white mt-6 sm:text-xl text-base"
+          >
+            New Game
+          </button>
+          <img
+            class="absolute top-0 sm:w-[40%] w-[80%] h-[100vh]"
+            src="./Assets/celebrate.gif"
+            alt="celebrate animation"
+          />
         </div>
-        <!-- congratulations window -->
-        <div id="congratulations_window" class="hidden absolute w-full h-screen flex justify-center items-center bg-gradient-to-b sm:bg-gradient-to-r from-sky-500 to-indigo-500">
-            <div class="lg:w-[40%] sm:w-[70%] w-[90%] sm:h-[60vh] h-[40vh] sm:mb-0 mb-12 bg-gradient-to-r from-cyan-300 to-green-300 shadow-2xl rounded-2xl flex flex-col justify-center items-center">
-                <h1 class="sm:text-4xl text-2xl mb-4">Congratulations</h1>
-                <h1 class="sm:text-3xl text-xl opacity-70"><span id="winner_player">X</span> is Winner</h1>
-                <button id="newGame_button" class="relative z-10 px-6 py-2 bg-green-500 hover:bg-green-600 active:bg-green-500 rounded-lg text-white mt-6 sm:text-xl text-base">New Game</button>
-                <img class="absolute top-0 sm:w-[40%] w-[80%] h-[100vh]" src="./Assets/celebrate.gif" alt="celebrate animation">
-            </div>
-        </div>
+      </div>
     </div>
 
     <!-- JavaScript -->
