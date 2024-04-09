@@ -13,7 +13,7 @@
       type="image/x-icon"
     />
   </head>
-  <body class="overflow-hidden">
+  <body>
     <div
       class="flex justify-center items-center w-full h-screen bg-gradient-to-b sm:bg-gradient-to-r from-sky-500 to-indigo-500"
     >
@@ -28,10 +28,10 @@
           Tic Tac Toe
         </h1>
       </div>
-      <!-- Play with computer and user option window -->
+      <!-- start window (Play with computer and user option) -->
       <div
         id="start_window"
-        class="duration-500 w-full h-screen bg-gradient-to-r from-purple-300 to-blue-300 absolute z-10 flex justify-center items-center"
+        class="duration-500 w-full h-screen sm:bg-gradient-to-r bg-gradient-to-b from-purple-300 to-blue-300 absolute z-20 flex justify-center items-center"
       >
         <div class="start_window_div flex flex-col items-center">
           <img
@@ -65,13 +65,13 @@
       >
         <button
           id="easy_level_button"
-          class="bg-blue-600 text-xl text-white rounded-lg px-5 py-2 mr-2"
+          class="hidden bg-green-600 text-xl text-white rounded-lg px-5 py-2 mr-2"
         >
           Easy
         </button>
         <button
           id="advance_level_button"
-          class="bg-blue-600 text-xl text-white rounded-lg px-5 py-2"
+          class="hidden bg-blue-600 text-xl text-white rounded-lg px-5 py-2"
         >
           Advance
         </button>
@@ -171,9 +171,15 @@
           </h1>
           <button
             id="newGame_button"
-            class="relative z-10 px-6 py-2 bg-green-500 hover:bg-green-600 active:bg-green-500 rounded-lg text-white mt-6 sm:text-xl text-base"
+            class="relative z-10 px-6 py-2 bg-green-500 hover:bg-green-600 active:bg-green-500 rounded-lg text-white mt-10 hover:scale-105 active:scale-100 duration-150 sm:text-xl text-base sm:w-[30%] w-[40%]"
           >
             New Game
+          </button>
+          <button
+            id="exit_button"
+            class="relative z-10 px-6 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 rounded-lg text-white mt-3 hover:scale-105 active:scale-100 duration-150 sm:text-xl text-base sm:w-[30%] w-[40%]"
+          >
+            Exit
           </button>
           <img
             class="absolute top-0 sm:w-[40%] w-[80%] h-[100vh]"

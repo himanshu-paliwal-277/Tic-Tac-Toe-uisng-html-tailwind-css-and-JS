@@ -10,6 +10,8 @@ let advance_level_button = document.getElementById("advance_level_button");
 
 let disable_div = document.getElementById("disable_div");
 let click_sound = new Audio("./Assets/click-button-sound.wav");
+let button_click_sound = new Audio("./Assets/click-button-sound-3.wav");
+let congratulations_sound = new Audio("./Assets/congratulations-deep-voice.mp3");
 
 // Play mode
 let player_1_button = document.getElementById("player_1_button");
@@ -172,11 +174,16 @@ function reset() {
 // reset button
 Reset_button.addEventListener("click", reset);
 
+Reset_button.addEventListener("click", () => {
+  button_click_sound.play();
+});
+
 // newGame_button button
 newGame_button.addEventListener("click", () => {
   congratulations_window.classList.add("hidden");
   reset();
   disable_div.classList.add("hidden");
+  button_click_sound.play();
 });
 
 // winner function (this function execute when player win)
@@ -187,6 +194,12 @@ function winner(player) {
     congratulations_window.classList.remove("hidden");
   }, 1200);
   already_win = true;
+  if(computer_mode === true && player === "X"){
+    congratulations_sound.play();
+  }
+  else if(computer_mode === false){
+    congratulations_sound.play();
+  }
 }
 
 // Logic if player 1 button is clicked
@@ -194,6 +207,10 @@ player_1_button.addEventListener("click", () => {
   start_window.style.height = `0vh`;
   document.querySelector(".start_window_div").classList.add("hidden");
   computer_mode = true;
+  easy_level_button.classList.remove("hidden");
+  advance_level_button.classList.remove("hidden");
+  reset();
+  button_click_sound.play();
 });
 
 // Logic if player 2 button is clicked
@@ -202,6 +219,9 @@ player_2_button.addEventListener("click", () => {
   document.querySelector(".start_window_div").classList.add("hidden");
   easy_level_button.classList.add("hidden");
   advance_level_button.classList.add("hidden");
+  reset();
+  computer_mode = false;
+  button_click_sound.play();
 });
 
 // Function which automatic play moves (play with computer mode)
@@ -241,11 +261,12 @@ function computer_move() {
 // easy level button click logic
 easy_level_button.addEventListener("click", () => {
   easy_level_button.classList.remove("bg-blue-600");
-  easy_level_button.classList.add("bg-red-600");
+  easy_level_button.classList.add("bg-green-600");
   advance_level_button.classList.add("bg-blue-600");
   advance_level_button.classList.remove("bg-red-600");
   advance_level = false;
   reset();
+  button_click_sound.play();
 });
 
 // advance level button click logic
@@ -253,9 +274,10 @@ advance_level_button.addEventListener("click", () => {
   advance_level_button.classList.remove("bg-blue-600");
   advance_level_button.classList.add("bg-red-600");
   easy_level_button.classList.add("bg-blue-600");
-  easy_level_button.classList.remove("bg-red-600");
+  easy_level_button.classList.remove("bg-green-600");
   advance_level = true;
   reset();
+  button_click_sound.play();
 });
 
 // advance level logic
@@ -354,11 +376,7 @@ function advance_level_move() {
           showing_which_player_turn.innerText = `${player_turn}`;
         }, 400);
         return;
-      }
-    }
-    // For Diagonal 1
-    else if (i === 0) {
-      if (
+      } else if (
         buttons[i].innerText === "X" &&
         buttons[i + 4].innerText === "" &&
         buttons[i + 8].innerText === "X"
@@ -369,11 +387,7 @@ function advance_level_move() {
           showing_which_player_turn.innerText = `${player_turn}`;
         }, 400);
         return;
-      }
-    }
-    // For Diagonal 1
-    else if (i === 0) {
-      if (
+      } else if (
         buttons[i].innerText === "" &&
         buttons[i + 4].innerText === "X" &&
         buttons[i + 8].innerText === "X"
@@ -399,26 +413,19 @@ function advance_level_move() {
           showing_which_player_turn.innerText = `${player_turn}`;
         }, 400);
         return;
-      }
-    }
-    // For Diagonal 2
-    else if (j === 2) {
-      if (
+      } else if (
         buttons[j].innerText === "X" &&
         buttons[j + 2].innerText === "X" &&
         buttons[j + 4].innerText === ""
       ) {
         setTimeout(() => {
+          // alert()
           buttons[j + 4].innerText = "O";
           player_turn = "X";
           showing_which_player_turn.innerText = `${player_turn}`;
         }, 400);
         return;
-      }
-    }
-    // For Diagonal 2
-    else if (j === 2) {
-      if (
+      } else if (
         buttons[j].innerText === "X" &&
         buttons[j + 2].innerText === "" &&
         buttons[j + 4].innerText === "X"
@@ -459,3 +466,16 @@ function advance_level_move() {
     }
   }
 }
+
+// Exit button logic
+let exit_button = document.getElementById("exit_button");
+
+exit_button.addEventListener("click", () => {
+  start_window.style.height = "100vh";
+  congratulations_window.classList.add("hidden");
+  setTimeout(() => {
+    document.querySelector(".start_window_div").classList.remove("hidden");
+  }, 400);
+  disable_div.classList.add("hidden");
+  button_click_sound.play();
+});
